@@ -28,6 +28,10 @@ default[:sumologic][:disabled] = false
 sumover = '19.19-4'
 default[:sumologic][:collector][:version] = sumover
 
+# Set to true for ephemeral instances
+sumoeph = 'false'
+default[:sumologic][:collector][:ephemeral] = sumoeph
+
 # The sumocollector tarball you wish to install.  You probably don't want to
 # change this; just grab and host the appropriate tarball corresponding to
 # its name.  But be careful since Sumo Logic drops ".tar" on occasion for no

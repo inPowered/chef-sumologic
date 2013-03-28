@@ -29,7 +29,7 @@ sumover = '19.19-4'
 default[:sumologic][:collector][:version] = sumover
 
 # Set to true for ephemeral instances
-sumoeph = 'false'
+sumoeph = false
 default[:sumologic][:collector][:ephemeral] = sumoeph
 
 # The sumocollector tarball you wish to install.  You probably don't want to

@@ -142,7 +142,10 @@ template "#{node[:sumologic][:rootdir]}/sumocollector/config/wrapper.conf" do
   notifies :restart, 'service[collector]' if !node[:sumologic][:disabled]
 end
 
-sumobin = "#{node[:sumologic][:rootdir]}/sumocollector/bin"
+# sumobin = "#{node[:sumologic][:rootdir]}/sumocollector/bin"
+# Since sumobin fails... adding a proper restart cmd for sumo - Paul G - Jun 4
+sumobin = "#{node[:sumologic][:rootdir]}/sumocollector"
+
 directory sumobin do
   mode 0755
 end
@@ -151,7 +154,9 @@ end
 # properly without reuploading a bunch of already-uploaded data.  To prevent
 # that, we run logrotate (this hurts me so much I can't even describe it, I
 # hope they get their shit straight, soon).  --lkosewsk, 30.11.2012.
-sumorestart = "#{sumobin}/restart.sh"
+# sumorestart = "#{sumobin}/restart.sh"
+# Since sumobin fails... adding a proper restart cmd for sumo - Paul G - Jun 4
+sumorestart = "#{sumobin}/collector restart"
 template sumorestart do
   source 'restart.sh.erb'
   backup false

@@ -136,8 +136,8 @@ template "#{node[:sumologic][:rootdir]}/sumocollector/config/wrapper.conf" do
     :sumo_email => node[:sumologic][:admin][:email],
     :sumo_pass => node[:sumologic][:admin][:pass],
     :selectedjson => p,
-    :sumo_eph => node[:sumologic][:collector][:ephemeral]
-    :name = node.name
+    :sumo_eph => node[:sumologic][:collector][:ephemeral],
+    :name => node.name
   )
   notifies :restart, 'service[collector]' if !node[:sumologic][:disabled]
 end

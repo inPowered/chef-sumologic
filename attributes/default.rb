@@ -25,7 +25,7 @@ default[:sumologic][:rootdir] = '/opt/sumologic'
 default[:sumologic][:disabled] = false
 
 # The sumocollector version you're installing
-sumover = '19.19-4'
+sumover = '19.50-6'
 default[:sumologic][:collector][:version] = sumover
 
 # Set to true for ephemeral instances

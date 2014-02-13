@@ -93,7 +93,7 @@ ruby_block 'compile_sumo_sources' do
         # config file, I assure you.
         x = <<-EOS.rstrip
     {
-      "type" : "localWildCard",
+      "sourceType" : "LocalFile",
       "name" : "#{k}",
       "timeZone" : "#{v[:default_timezone]}",
       "forceTimeZone" : #{v[:force_timezone]},

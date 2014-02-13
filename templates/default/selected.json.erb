@@ -2,7 +2,8 @@
   "sumo.config" : {
     "hostName" : ""
   },
-  "sumo.blades" : [
+  "api.version": "v1",
+  "sources": [
 <%= node.run_state[:sumo_output].join(",\n") %>
   ]
 }

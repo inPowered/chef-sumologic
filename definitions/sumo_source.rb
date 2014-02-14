@@ -46,8 +46,8 @@ define :sumo_source, :path => nil do
            node[:sumologic][:sources][:default_timezone] || 'UTC'
       tzoverride = params[:force_timezone] ||
                    node[:sumologic][:sources][:force_timezone] || false
-      blist = params[:blacklist] ||
-            node[:sumologic][:sources][:default_blacklist] || '/path/to/nothig/','/nowhere/array/'
+      blist params[:blacklist] ||
+            node[:sumologic][:sources][:default_blacklist] || ['/path/to/nothing/*.log','/nowhere/array/*.log']
       node.run_state[:sumo_source][toadd] =
         { :path => params[:path],
           :category => cat,

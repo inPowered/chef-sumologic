@@ -9,7 +9,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,7 @@ define :sumo_source, :path => nil do
         raise Chef::Exceptions::ValidationFailed,
               "Sumo source #{params[:name]} doesn't match ^[a-z][A-Za-z0-9_]*$!"
       end
-      if params[:path].nil?  # FIXME: This should validate SumoLogic path exps?
+      if params[:path].nil? # FIXME: This should validate SumoLogic path exps?
         raise Chef::Exceptions::ValidationFailed,
               'Sumo sources need a non-nil path (try defining it!)'
       end
@@ -46,14 +46,14 @@ define :sumo_source, :path => nil do
            node[:sumologic][:sources][:default_timezone] || 'UTC'
       tzoverride = params[:force_timezone] ||
                    node[:sumologic][:sources][:force_timezone] || false
-      blist params[:blacklist] ||
+      blist = params[:blacklist] ||
             node[:sumologic][:sources][:default_blacklist] || ''
       node.run_state[:sumo_source][toadd] =
         { :path => params[:path],
           :category => cat,
           :default_timezone => tz,
           :force_timezone => tzoverride,
-	  :blacklist => blist
+:blacklist => blist
         }
     end
     action :nothing

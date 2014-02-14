@@ -47,13 +47,13 @@ define :sumo_source, :path => nil do
       tzoverride = params[:force_timezone] ||
                    node[:sumologic][:sources][:force_timezone] || false
       blist params[:blacklist] ||
-            node[:sumologic][:sources][:default_blacklist] || '/path/to/nothing/nothing.log','/nowhere/array/no.log'
+            node[:sumologic][:sources][:default_blacklist] || \'/path/to/nothing/nothing.log','/nowhere/array/no.log\'
       node.run_state[:sumo_source][toadd] =
         { :path => params[:path],
           :category => cat,
           :default_timezone => tz,
           :force_timezone => tzoverride,
-	  :blacklist => [blist]
+	  :blacklist => blist
         }
     end
     action :nothing
